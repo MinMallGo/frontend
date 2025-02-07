@@ -1,3 +1,10 @@
-## min-mall 前端 React
+## min-mall
 
-### 两周上手React
+## npm cache 配置 
+```cmd 
+npm config set cache "D:\node_cache"
+```
+## vue3 一把梭
+``` 
+npm create vue@latest
+```
