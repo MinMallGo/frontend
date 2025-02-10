@@ -12,6 +12,16 @@
 | Redux？ ❌	 |     用 Zustand 替代     |
 | 复杂管理？ ❌	  |  组件 = UI，数据从 API 来   |
 
+### 将UI拆解成层级结构
+### 找出精简UI且完整的state表示
+1. 随着时间推移不会变的。不是state
+2. 通过prop从父组件传递的。不是state
+3. 可以基于已经存在于组件中的state或者props计算的。不是state
+
+### state应该放在哪里
+1. 共同的父组件
+2. 共同父组件的上层
+
 ## React
 
 ### 接近javascript
