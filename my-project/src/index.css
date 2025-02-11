@@ -1,0 +1,16 @@
+/* src/index.css */
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+.ant-layout {
+  min-height: 100vh;
+}
+
+.ant-card {
+  border-radius: 10px;
+}
+
+.ant-layout-background {
+  background-color: #f7f7f7;
+}
