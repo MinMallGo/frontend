@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import ProductList from './pages/ProductList';
+import DataTable from "./pages/Tables.jsx";
 
 const AppRouter = () => {
     return (
@@ -9,6 +10,7 @@ const AppRouter = () => {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/products" element={<ProductList />} />
+                <Route path="/xxx" element={<DataTable />} />
             </Routes>
         </Router>
     );

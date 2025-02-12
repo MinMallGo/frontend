@@ -7,7 +7,7 @@ const { Sider } = Layout;
 
 const Sidebar = () => {
     return (
-        <Sider width={200} className="site-layout-background" style={{ paddingTop: '20px' }}>
+        <Sider width={200} className="site-layout-background" style={{ paddingTop: '20px',background:"white" }}>
             <Category />
         </Sider>
     );

@@ -15,7 +15,7 @@ const ProductCard = ({ product }) => {
                     <ShoppingCartOutlined key="add-to-cart" />,
                 ]}
             >
-                <Meta title={product.name} description={`￥${product.price}`} />
+                <Meta title={product.name} description={`$${product.price}`} />
             </Card>
         </Col>
     );
