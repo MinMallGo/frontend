@@ -8,7 +8,7 @@ const axiosInstance = axios.create({
     timeout: ReqTimeout, // 请求超时时间
     headers: {
         'Content-Type': 'application/json',
-        'token':'iubxlzwljovdyklrlxhdopgmbeqi'
+        'token':'nmwdakeejbnjblyvcricaueqczng'
     },
 });
 
@@ -39,6 +39,12 @@ axiosInstance.interceptors.response.use(
             switch (error.response.status) {
                 case 401:
                     // 处理授权错误，比如跳转到登录页面
+                    window.location.href = "/userLogin"
+                    console.error('授权错误，未登录');
+                    break;
+                case 403:
+                    // 处理授权错误，比如跳转到登录页面
+                    window.location.href = "/adminLogin"
                     console.error('授权错误，未登录');
                     break;
                 case 500:
