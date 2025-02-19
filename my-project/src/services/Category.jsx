@@ -17,7 +17,7 @@ export default function Category() {
         setLoading(true);  // 请求开始时，设置加载中
         try {
             const response = await postData(uri, {
-                "name": category,  // 使用当前选择的类别
+                "name": "",  // 使用当前选择的类别
                 "page": 1,
                 "size": 100,
             });
@@ -40,8 +40,8 @@ export default function Category() {
 
     // 监听 selectedCategory 的变化，触发数据请求
     useEffect(() => {
-        fetchData(selectedCategory);  // 每次 category 更新时重新请求
-    }, [selectedCategory]);  // 依赖项为 selectedCategory
+        fetchData("");  // 每次 category 更新时重新请求
+    }, []);  // 依赖项为 selectedCategory
 
     // 点击按钮切换类别
     const handleCategoryChange = (category) => {

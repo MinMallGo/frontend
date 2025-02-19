@@ -83,3 +83,10 @@ export const Codes = [
     // 管理员未登录
     {code: 403, isSuccess: false, isRedirect: true, description: "admin not login!", page: "admin/login"},
 ]
+
+export const ApiStatus = {
+    success: {code: 200, isSuccess: true, isRedirect: false},
+    error: {code: 400, isSuccess: false, isRedirect: false},
+    userLogin: {code: 401, isSuccess: false, isRedirect: true, description: "user not login!", page: "user/login"},
+    adminLogin: {code: 403, isSuccess: false, isRedirect: true, description: "admin not login!", page: "admin/login"},
+}

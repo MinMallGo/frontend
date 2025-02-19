@@ -1,6 +1,6 @@
 // src/utils/axiosInstance.js
 import axios from 'axios';
-import {BaseUri, ReqTimeout} from "./Public.jsx";
+import {ApiStatus, BaseUri, ReqTimeout} from "./Public.jsx";
 
 // 创建 axios 实例
 const axiosInstance = axios.create({
@@ -8,7 +8,7 @@ const axiosInstance = axios.create({
     timeout: ReqTimeout, // 请求超时时间
     headers: {
         'Content-Type': 'application/json',
-        'token':'nmwdakeejbnjblyvcricaueqczng'
+        'token':'aaxpllwjecrphlutsfkqztdhqjah'
     },
 });
 
@@ -31,6 +31,21 @@ axiosInstance.interceptors.request.use(
 // 响应拦截器：可以在响应返回时进行处理
 axiosInstance.interceptors.response.use(
     (response) => {
+        if(response.status !== ApiStatus.success.code){
+            switch (response.status) {
+                case ApiStatus.error.code:
+                    console.error(response.message)
+                    break
+                case ApiStatus.userLogin.code:
+                    console.error(response.message)
+                    window.location.href = ApiStatus.userLogin.page
+                    break
+                case ApiStatus.adminLogin.code:
+                    console.error(response.message)
+                    window.location.href = ApiStatus.adminLogin.page
+                    break
+            }
+        }
         return Promise.resolve(response.data); // 只返回数据部分
     },
     (error) => {

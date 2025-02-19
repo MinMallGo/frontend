@@ -10,13 +10,6 @@ import {Uris} from "../services/Public.jsx";
 const { Content } = Layout;
 
 const Home = () => {
-    // const products = [
-    //     { id: 1, name: 'iPhone 12', price: 6999, imgUrl: 'https://example.com/iphone12.jpg' },
-    //     { id: 2, name: 'MacBook Pro', price: 12999, imgUrl: 'https://example.com/macbook.jpg' },
-    //     { id: 3, name: 'AirPods Pro', price: 1999, imgUrl: 'https://example.com/airpods.jpg' },
-    //     { id: 4, name: 'iPad Pro', price: 6999, imgUrl: 'https://example.com/ipad.jpg' },
-    // ];
-
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -30,17 +23,21 @@ const Home = () => {
         try {
             const response = await postData(uri, {
                 "name": name,  // 使用当前选择的类别
+                "category_id":0,
                 "page": 1,
                 "size": 100,
             });
 
             if (response && response.data) {
+                let tmp = []
                 const pros = response.data.data.map(item => ({
-                    label: item.name,
-                    key: item.id.toString(),
-                    onClick:() => handleCategoryChange(item.name)
+                    id: item.id,
+                    name: item.name.toString(),
+                    price: item.desc + "" +1999,
+                    imgUrl: 'https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png',
+                    // onClick:() => handleCategoryChange(item.name)
                 }));
-                setProducts(menuItems);  // 更新菜单项
+                setProducts(pros);  // 更新菜单项
             }
 
             setLoading(false);  // 请求完成
@@ -51,7 +48,7 @@ const Home = () => {
     };
 
     useEffect(() => {
-
+        fetchData()
     }, []);
 
 
